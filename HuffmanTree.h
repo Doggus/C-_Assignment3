@@ -15,7 +15,7 @@ namespace tldlir001
     {
 
     public:
-        bool operator()(const HuffmanNode &a, const HuffmanNode &b);
+        bool operator()(const tldlir001::HuffmanNode &a, const tldlir001::HuffmanNode &b);
 
     };
 
@@ -24,9 +24,9 @@ namespace tldlir001
 
     public:
 
-        std::priority_queue<HuffmanNode, std::vector<HuffmanNode>, Compare> queue;
+        std::priority_queue<tldlir001::HuffmanNode, std::vector<tldlir001::HuffmanNode>, Compare> queue;
 
-        HuffmanTree( std::priority_queue<HuffmanNode, std::vector<HuffmanNode>, Compare> q);
+        HuffmanTree( std::priority_queue<tldlir001::HuffmanNode, std::vector<tldlir001::HuffmanNode>, Compare> q);
 
         ~HuffmanTree();
 

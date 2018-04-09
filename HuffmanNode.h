@@ -13,7 +13,8 @@ namespace tldlir001
     {
 
         public:
-            char Letter;
+
+            char letter;
             int frequency;
 
             std::shared_ptr <HuffmanNode> left;
@@ -22,6 +23,8 @@ namespace tldlir001
             HuffmanNode(char l, int f);
             ~HuffmanNode();
 
+            std::shared_ptr<HuffmanNode>GetLeft();
+            std::shared_ptr<HuffmanNode>GetRight();
     };
 }
 

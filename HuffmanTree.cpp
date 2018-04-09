@@ -5,7 +5,7 @@
 #include "HuffmanTree.h"
 
 
-tldlir001::HuffmanTree::HuffmanTree(std::priority_queue<HuffmanNode,std::vector,tldlir001::Compare> q)
+tldlir001::HuffmanTree::HuffmanTree(std::priority_queue<tldlir001::HuffmanNode,std::vector<tldlir001::HuffmanNode>,tldlir001::Compare> q)
 {
 
     tldlir001::HuffmanTree::queue = q;
@@ -15,19 +15,22 @@ tldlir001::HuffmanTree::HuffmanTree(std::priority_queue<HuffmanNode,std::vector,
     {
 
 
-        HuffmanNode h = queue.top(); //get top node
+        tldlir001::HuffmanNode h = queue.top(); //get top node
         q.pop(); // remove top node
-        HuffmanNode h2 = queue.top(); //get top node
+        tldlir001::HuffmanNode h2 = queue.top(); //get top node
         q.pop(); // remove top node
 
-        std::shared_ptr<HuffmanNode> pnode = std::make_shared<HuffmanNode> (HuffmanNode(c,h.frequency+h2.frequency));
-        queue.push(*pnode);
+        int f = h.frequency + h2.frequency;
+        tldlir001::HuffmanNode parentNode(c,f);
 
-        tldlir001::left =
+        parentNode.left = std::make_shared<tldlir001::HuffmanNode>(h);
+        parentNode.right = std::make_shared<tldlir001::HuffmanNode>(h2);
+
+        queue.push(parentNode); //push to top
 
     }
 
-    std::shared_ptr<HuffmanNode> root = std::make_shared<HuffmanNode>(queue.top());
+    std::shared_ptr<tldlir001::HuffmanNode> root = std::make_shared<tldlir001::HuffmanNode>(queue.top());
     queue.pop();
 
 }
