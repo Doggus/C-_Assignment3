@@ -23,5 +23,18 @@ int main()
 
     tldlir001::HuffmanTree ht(pq);
 
+    tldlir001::Compare c;
+    bool b = c.operator()(h1,h3);
+    //cout << b << endl; // prints 1 for true, 0 for false;
+
+    /*
+    cout << ht.root << endl;
+
+    tldlir001::HuffmanNode r = *ht.root;
+    tldlir001::HuffmanNode lr = *r.left;
+
+    cout << lr.frequency << endl;
+    */
+
     return 0;
 }

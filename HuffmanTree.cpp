@@ -11,9 +11,8 @@ tldlir001::HuffmanTree::HuffmanTree(std::priority_queue<tldlir001::HuffmanNode,s
     tldlir001::HuffmanTree::queue = q;
     char c = '#';
 
-    while(q.size()>=2)
+    while(q.size()>1)
     {
-
 
         tldlir001::HuffmanNode h = queue.top(); //get top node
         q.pop(); // remove top node
@@ -30,7 +29,7 @@ tldlir001::HuffmanTree::HuffmanTree(std::priority_queue<tldlir001::HuffmanNode,s
 
     }
 
-    std::shared_ptr<tldlir001::HuffmanNode> root = std::make_shared<tldlir001::HuffmanNode>(queue.top());
+    root = std::make_shared<tldlir001::HuffmanNode>(queue.top());
     queue.pop();
 
 }
@@ -38,6 +37,11 @@ tldlir001::HuffmanTree::HuffmanTree(std::priority_queue<tldlir001::HuffmanNode,s
 tldlir001::HuffmanTree::~HuffmanTree()
 {
 
+}
+
+tldlir001::Compare::Compare()
+{
+    //maybe
 }
 
 bool tldlir001::Compare::operator()(const tldlir001::HuffmanNode &a, const tldlir001::HuffmanNode &b)
