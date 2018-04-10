@@ -16,7 +16,7 @@ namespace tldlir001
 
     public:
 
-        bool operator()(const tldlir001::HuffmanNode &a, const tldlir001::HuffmanNode &b);
+        bool operator()(const tldlir001::HuffmanNode &a, const tldlir001::HuffmanNode &b); //used to structure order of priority queue
 
     };
 
