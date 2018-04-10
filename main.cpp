@@ -23,8 +23,8 @@ int main()
 
     tldlir001::HuffmanTree ht(pq);
 
-    tldlir001::Compare c;
-    bool b = c.operator()(h1,h3);
+   // tldlir001::Compare c;
+    //bool b = c.operator()(h1,h3);
     //cout << b << endl; // prints 1 for true, 0 for false;
 
     /*
@@ -37,4 +37,9 @@ int main()
     */
 
     return 0;
+}
+
+void sort(std::priority_queue<tldlir001::HuffmanNode, std::vector<tldlir001::HuffmanNode>, tldlir001::Compare> pq)
+{
+
 }

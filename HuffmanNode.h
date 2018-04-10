@@ -20,11 +20,8 @@ namespace tldlir001
             std::shared_ptr <HuffmanNode> left;
             std::shared_ptr <HuffmanNode> right;
 
-            HuffmanNode(char l, int f);
+            HuffmanNode(const char &l, const int &f);
             ~HuffmanNode();
-
-            std::shared_ptr<HuffmanNode>GetLeft();
-            std::shared_ptr<HuffmanNode>GetRight();
     };
 }
 

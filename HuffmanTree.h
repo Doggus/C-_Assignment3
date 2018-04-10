@@ -27,7 +27,6 @@ namespace tldlir001
 
     public:
 
-        std::priority_queue<tldlir001::HuffmanNode, std::vector<tldlir001::HuffmanNode>, Compare> queue;
         std::shared_ptr<tldlir001::HuffmanNode> root; //root node
 
         HuffmanTree( std::priority_queue<tldlir001::HuffmanNode, std::vector<tldlir001::HuffmanNode>, Compare> q);
