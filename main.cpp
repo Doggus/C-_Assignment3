@@ -41,7 +41,7 @@ int main()
     return 0;
 }
 
-
+//Returns map with node letters and their bitmap values (will be used for compression/decompression)  [Code Table]
 unordered_map<char, string> bitmap(tldlir001::HuffmanNode n, unordered_map<char, string> map, string s)
 {
 
