@@ -18,8 +18,6 @@ namespace tldlir001
 
         bool operator()(const tldlir001::HuffmanNode &a, const tldlir001::HuffmanNode &b);
 
-        Compare();
-
     };
 
     class HuffmanTree
