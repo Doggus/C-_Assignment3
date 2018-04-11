@@ -14,6 +14,16 @@ tldlir001::HuffmanNode::HuffmanNode(const char &l, const int &f)
     tldlir001::HuffmanNode::left;
 }
 
+//default constructor
+tldlir001::HuffmanNode::HuffmanNode()
+{
+    tldlir001::HuffmanNode::letter = '#'; //empty (sort of) [arbitrary]
+    tldlir001::HuffmanNode::frequency = 0;
+
+    tldlir001::HuffmanNode::right = nullptr;
+    tldlir001::HuffmanNode::left = nullptr;
+}
+
 //copy constructor (breaks program)
 /*
 tldlir001::HuffmanNode::HuffmanNode(const tldlir001::HuffmanNode &node)
@@ -37,17 +47,6 @@ tldlir001::HuffmanNode::HuffmanNode(tldlir001::HuffmanNode &&node)
 }
 */
 
-//default constructor
-tldlir001::HuffmanNode::HuffmanNode()
-{
-    tldlir001::HuffmanNode::letter = '#'; //empty (sort of) [arbitrary]
-    tldlir001::HuffmanNode::frequency = 0;
-
-    tldlir001::HuffmanNode::right = nullptr;
-    tldlir001::HuffmanNode::left = nullptr;
-}
-
-
 //destructor
 tldlir001::HuffmanNode::~HuffmanNode() //calls by itself (automatic)
 {
@@ -57,5 +56,5 @@ tldlir001::HuffmanNode::~HuffmanNode() //calls by itself (automatic)
 }
 
 // This copy assignment operator is neccesary for copy constructor to work
-//tldlir001::HuffmanNode &tldlir001::HuffmanNode::operator=(const tldlir001::HuffmanNode &node) = default;
+// tldlir001::HuffmanNode &tldlir001::HuffmanNode::operator=(const tldlir001::HuffmanNode &node) = default;
 

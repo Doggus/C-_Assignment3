@@ -35,6 +35,12 @@ tldlir001::HuffmanTree::HuffmanTree(std::priority_queue<tldlir001::HuffmanNode, 
 
 }
 
+//default constructor
+tldlir001::HuffmanTree::HuffmanTree()
+{
+    root = nullptr;
+}
+
 //Copy constructor
 tldlir001::HuffmanTree::HuffmanTree(const tldlir001::HuffmanTree &tree)
 {
@@ -46,13 +52,6 @@ tldlir001::HuffmanTree::HuffmanTree(const tldlir001::HuffmanTree &tree)
 tldlir001::HuffmanTree::HuffmanTree(const tldlir001::HuffmanTree &&tree)
 {
     root = std::move(root);
-}
-
-
-//default constructor
-tldlir001::HuffmanTree::HuffmanTree()
-{
-    root = nullptr;
 }
 
 
