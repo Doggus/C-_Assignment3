@@ -14,13 +14,12 @@ using namespace std;
 //functions need to be above main to be used in main
 
 //Returns map with node letters and their bitmap values (will be used for compression/decompression)  [Code Table]
-unordered_map<char, string> bitmap(tldlir001::HuffmanNode n, unordered_map<char, string> map, string s)
+void bitmap(tldlir001::HuffmanNode n, unordered_map<char, string> &map, string s)
 {
 
     if(n.letter != '#')
     {
         map[n.letter] = s;
-        cout << s << endl;
     }
     else
     {
@@ -28,29 +27,17 @@ unordered_map<char, string> bitmap(tldlir001::HuffmanNode n, unordered_map<char,
         bitmap(*n.right,map,s+"1");
     }
 
-    return map;
+
 }
 
-
-int main()
+//rename to huffencode!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+int main(int argc, char* argv[])
 {
-    cout << "Hello, World!" << endl;
-
     std::priority_queue<tldlir001::HuffmanNode, std::vector<tldlir001::HuffmanNode>, tldlir001::Compare> pq;
 
-    /*
-    tldlir001::HuffmanNode h1('a',1);
-    tldlir001::HuffmanNode h2('b',2);
-    tldlir001::HuffmanNode h3('c',3);
-    tldlir001::HuffmanNode h4('d',4);
+    ifstream in((string)argv[1] + ".txt");
 
-    pq.push(h1);
-    pq.push(h2);
-    pq.push(h3);
-    pq.push(h4);
-    */
-
-    ifstream in("input.txt");
+    vector<char> let;
 
     if(!in)
     {
@@ -58,25 +45,30 @@ int main()
     }
     else {
 
-        /*
+        string s = "";
+
         for (string line; getline(in, line);)
         {
-            //cout << line << endl;
+            s = s + line;
         }
-        */
+
+        cout << s << endl;
 
         //gets input from file and fills priority queue with values
 
-        string line;
-        getline(in, line); // first line from file
-        cout << line << endl;
 
-        vector<char> letters (line.begin(), line.end()); //char array made of the letters of the string
+        //string line;
+        //getline(in, line); // first line from file
+        //cout << line << endl;
 
-        sort(letters.begin(), letters.end()); //sorts letters in ascending order
+        vector<char> letters (s.begin(), s.end()); //char array made of the letters of the string
+
+        sort(letters.begin(), letters.end()); //sorts letters in ascending order (NB!)
+
+        let = letters; // creates copy to use later
 
         int count = 0;
-        for(int i = 0; i < letters.size(); i++)
+        for(int i = 0; i < letters.size(); i++) // fills priority queue (vector NEEDS to be sorted)
         {
             if(i <= letters.size()-1 && letters[i] == letters[i+1])
             {
@@ -93,13 +85,50 @@ int main()
     }
 
 
+
     tldlir001::HuffmanTree ht(pq); //create huffman tree using pq
 
-    unordered_map<char, string> umap;
-    unordered_map<char, string> map = bitmap(*ht.root,umap,"");
-    cout << map.at('a') << endl;
+    unordered_map<char, string> umap; //create map
+    bitmap(*ht.root,umap,""); // fill map with bit values
+    //cout << umap.at('a') << endl;
+
+    //create string buffer of bit values
+    string buffer = "";
+    for(int i = 0; i < let.size(); i++)
+    {
+        buffer = buffer + umap.at(let[i]);
+    }
+
+    // write bit stream to file
+   ofstream out;
+   out.open((string)argv[2] + ".txt");
+
+   out << buffer;
+
+   out.close();
+
+   //writes chars and their frequencies to a file
+   ofstream o;
+   o.open((string)argv[2] + ".hdr");
+
+    int c = 0;
+    for(int j = 0; j < let.size(); j++)
+    {
+        if(j <= let.size()-1 && let[j] == let[j+1])
+        {
+            c++;
+        }
+        else
+        {
+            o << let[j] << ": "  << c+1 << endl;
+            c = 0;
+        }
+    }
+
+   o.close();
 
     return 0;
+
 }
 
 
