@@ -25,11 +25,18 @@ namespace tldlir001
 
     public:
 
+
         std::shared_ptr<tldlir001::HuffmanNode> root; //root node
 
         HuffmanTree( std::priority_queue<tldlir001::HuffmanNode, std::vector<tldlir001::HuffmanNode>, Compare> q);
 
-        ~HuffmanTree();
+        HuffmanTree(const HuffmanTree &tree); //copy constructor
+
+        HuffmanTree(const HuffmanTree &&tree); //move constructor
+
+        HuffmanTree(); // default constructor
+
+        ~HuffmanTree(); //destructor
 
     };
 }

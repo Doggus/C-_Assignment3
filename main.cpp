@@ -30,7 +30,6 @@ void bitmap(tldlir001::HuffmanNode n, unordered_map<char, string> &map, string s
 
 }
 
-//rename to huffencode!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 int main(int argc, char* argv[])
 {
     std::priority_queue<tldlir001::HuffmanNode, std::vector<tldlir001::HuffmanNode>, tldlir001::Compare> pq;
@@ -55,11 +54,6 @@ int main(int argc, char* argv[])
         cout << s << endl;
 
         //gets input from file and fills priority queue with values
-
-
-        //string line;
-        //getline(in, line); // first line from file
-        //cout << line << endl;
 
         vector<char> letters (s.begin(), s.end()); //char array made of the letters of the string
 
@@ -90,7 +84,6 @@ int main(int argc, char* argv[])
 
     unordered_map<char, string> umap; //create map
     bitmap(*ht.root,umap,""); // fill map with bit values
-    //cout << umap.at('a') << endl;
 
     //create string buffer of bit values
     string buffer = "";

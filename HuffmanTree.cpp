@@ -5,7 +5,7 @@
 #include <iostream>
 #include "HuffmanTree.h"
 
-
+// Normal constructor
 tldlir001::HuffmanTree::HuffmanTree(std::priority_queue<tldlir001::HuffmanNode, std::vector<tldlir001::HuffmanNode>, tldlir001::Compare> q)
 {
 
@@ -35,9 +35,32 @@ tldlir001::HuffmanTree::HuffmanTree(std::priority_queue<tldlir001::HuffmanNode, 
 
 }
 
-tldlir001::HuffmanTree::~HuffmanTree()
+//Copy constructor
+tldlir001::HuffmanTree::HuffmanTree(const tldlir001::HuffmanTree &tree)
 {
+    root = tree.root;
+}
 
+//move constructor
+
+tldlir001::HuffmanTree::HuffmanTree(const tldlir001::HuffmanTree &&tree)
+{
+    root = std::move(root);
+}
+
+
+//default constructor
+tldlir001::HuffmanTree::HuffmanTree()
+{
+    root = nullptr;
+}
+
+
+//destructor
+tldlir001::HuffmanTree::~HuffmanTree() //calls by itself (automatic)
+{
+    //make pointers point to nothing (no memory allocated with new)
+    root = nullptr; // or root.reset()
 }
 
 
